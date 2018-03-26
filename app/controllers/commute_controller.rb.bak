@@ -7,7 +7,7 @@ require 'json'
     ampm = Time.now.strftime("%p")
     
     if ampm == 'AM'
-      route_array << 'home to work'
+      route_array << 'Home to Work'
       #Home to Work I-5
       url = 'https://maps.googleapis.com/maps/api/directions/json?origin=200+N+47th+St+Seattle,+WA+98103&destination=3700+Monte+Villa+Pkwy+Bothell,+WA+98021&waypoints=via:47.819120%2C-122.282513&departure_time=now&traffic_model=best_guess&key=AIzaSyBJUvRTERi_5G7rsXvWC4kyW32i6RcHxV8'
       response = JSON.parse(RestClient.get(url))
@@ -21,7 +21,7 @@ require 'json'
       response = JSON.parse(RestClient.get(url))
       route_array << response['routes'][0]['legs'][0]['duration_in_traffic']['text']
     else
-      route_array << 'work to home'
+      route_array << 'Work to Home'
       #Work to Home I-5
       url = 'https://maps.googleapis.com/maps/api/directions/json?origin=3700+Monte+Villa+Pkwy+Bothell,+WA+98021&destination=200+N+47th+St+Seattle,+WA+98103&waypoints=via:47.826180%2C-122.254351&departure_time=now&traffic_model=best_guess&key=AIzaSyBJUvRTERi_5G7rsXvWC4kyW32i6RcHxV8'
       response = JSON.parse(RestClient.get(url))
