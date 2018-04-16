@@ -3,9 +3,8 @@ require 'rest-client'
 require 'json'
 
   def route_times
-    ampm = "AM"  
     route_array = Array.new   
-    Time.use_zone('America/Los_Angeles') { ampm = Time.now.strftime("%p") }
+    ampm = Time.now.in_time_zone('America/Los_Angeles').strftime("%p")
     api_key = ENV['GOOGLE_API_KEY']
     
     if ampm == 'AM'
